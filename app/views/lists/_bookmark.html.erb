@@ -1,0 +1,21 @@
+<div class="bookmark-form card p-3 shadow-sm">
+  <h4 class="text-center mb-5">Add a Movie</h4>
+
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <div class="mb-3">
+      <%= f.input :movie_id, collection: @movies, label: "Select a Movie", prompt: "Choose a movie", input_html: { class: "form-select" } %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.input :comment, as: :text, label: "Comment", input_html: { class: "form-control", rows: 2 } %>
+    </div>
+
+    <div class="text-center">
+      <%= f.button :submit, "Add Movie", class: "btn btn-main btn-sm w-100" %>
+    </div>
+  <% end %>
+</div>
+
+<div class="text-center mt-3">
+  <%= link_to "Back to Lists", lists_path, class: "btn btn-secondary btn-sm" %>
+</div>

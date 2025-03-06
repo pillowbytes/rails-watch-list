@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RailsWatchList</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+<head>
+  <title>RailsWatchList</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+
+<body>
+  <div class="mb-3">
+    <%= render "shared/navbar" %>
+  </div>
+  <div class="container mt-5">
     <%= yield %>
-  </body>
+  </div>
+</body>
+
 </html>

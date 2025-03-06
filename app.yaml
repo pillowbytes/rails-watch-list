@@ -1,0 +1,22 @@
+service: main
+runtime: ruby
+
+env: flex
+
+entrypoint: bundle exec puma -C config/puma.rb
+
+env_variables:
+  RAILS_ENV: production
+  SECRET_KEY_BASE: "1336e0bb1e144c206a98429052c7de2f67d90689f7d21c54b82b1c91978ac30f1a0b367f00544bd54314b2ed19fcabb7f868140c1b2b68c061af1814899ded8f"
+
+runtime_config:
+  operating_system: "ubuntu22"
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 2
+  cpu_utilization:
+    target_utilization: 0.6
+
+network:
+  session_affinity: true

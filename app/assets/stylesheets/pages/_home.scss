@@ -1,1 +1,15 @@
 // Specific CSS for your home-page
+a {
+  text-decoration: none;
+  margin: auto 5px;
+  color: white;
+}
+
+.btn {
+  border-radius: 5px;
+  color: $light-gray;
+}
+
+.btn-main {
+  background-color: $purple;
+}

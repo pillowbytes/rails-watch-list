@@ -1,0 +1,13 @@
+<div class="col">
+  <div class="movie-card card shadow-sm">
+    <img src="<%= movie.poster_url %>" class="card-img-top" alt="<%= movie.title %>">
+
+    <div class="card-body">
+      <h5 class="card-title"><%= movie. title %></h5>
+      <p class="card-text"><%= truncate(movie.overview, length: 100) %></p>
+      <p class="rating">
+        <i class="fa-solid fa-star"></i> <%= movie.rating.round(1) %> / 10
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<h1 class="text-center"><%= @list.name %></h1>
+
+<div class="container mt-4">
+  <div class="row">
+    <!-- Left Side: Movies Grid -->
+    <div class="col-lg-9">
+      <h3 class="mb-4">Bookmarked Movies</h3>
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <% @bookmarks.each do |bookmark| %>
+          <div class="col">
+            <div class="movie-card card shadow-sm">
+              <img src="<%= bookmark.movie.poster_url %>" class="card-img-top" alt="<%= bookmark.movie.title %>">
+
+              <div class="card-body">
+                <h5 class="card-title"><%= bookmark.movie.title %></h5>
+                <p class="card-text"><strong style="color: #">User Comment: </strong>"<em><%= bookmark.comment %></em>"</p>
+                <p class="rating"><i class="fa-solid fa-star"></i> <%= bookmark.movie.rating.round(1) %> / 10</p>
+
+                <%= button_to "Remove", list_bookmark_path(@list, bookmark), method: :delete, class: "btn btn-danger btn-sm" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- Right Side: Sticky Form -->
+    <div class="col-lg-3">
+      <div class="bookmark-form-container">
+        <%= render "bookmark" %>
+      </div>
+    </div>
+  </div>
+</div>

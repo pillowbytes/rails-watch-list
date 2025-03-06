@@ -1,0 +1,22 @@
+<% @lists.each do |list| %>
+  <div class="mb-4">
+    <div class="d-flex justify-content-between align-items-center">
+      <h3 class="text-white mb-2"><%= link_to list.name, list_path(list) %></h3>
+      <%= link_to "Explore All →", list_path(list), class: "text-primary fw-semibold" %>
+    </div>
+
+    <% if list.bookmarks.any? %>
+      <div class="movie-list-container">
+        <div class="movie-list">
+          <% list.bookmarks.limit(10).each do |bookmark| %>
+            <div class="movie-item">
+              <img src="<%= bookmark.movie.poster_url %>" class="movie-poster" alt="<%= bookmark.movie.title %>">
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <p class="text-muted">No movies added to this list yet.</p>
+    <% end %>
+  </div>
+<% end %>

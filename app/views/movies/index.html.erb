@@ -1,0 +1,9 @@
+<h1 class="text-center my-4">Movies</h1>
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+    <% @movies.each do |movie| %>
+      <%= render "movie_card", movie: movie %>
+    <% end %>
+  </div>
+</div>
